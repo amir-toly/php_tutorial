@@ -32,6 +32,8 @@ if (isset($nickname) && isset($message))
 			'nickname' => $nickname,
 			'message' => $message
 		));
+		
+		$query->closeCursor();
 	}
 	else
 	{
