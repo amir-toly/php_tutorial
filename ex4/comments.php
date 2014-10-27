@@ -64,7 +64,7 @@ if (isset($post_id))
 				<?php echo $post['title']; ?>
 				<em> on (french fashion display) <?php echo $post['created_at']; ?></em>
 			</h3>
-			<p><?php echo $post['content']; ?></p>
+			<p><?php echo nl2br($post['content']); ?></p>
 		</div>
 		
 		<h2>Comments</h2>
@@ -79,7 +79,7 @@ if (isset($post_id))
 					<strong><?php echo $data['author']; ?></strong>
 					on (french fashion display) <?php echo $data['comment_date']; ?>
 				</p>
-				<p><?php echo $data['comment']; ?></p>
+				<p><?php echo nl2br($data['comment']); ?></p>
 		<?php
 			
 			}

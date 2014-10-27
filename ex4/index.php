@@ -41,7 +41,7 @@ $response = $db->query("" .
 					<em>on (french fashion display) <?php echo $data['created_at']; ?></em>
 				</h3>
 				<p>
-					<?php echo $data['content'];/*TODO(display line breaks)*/ ?>
+					<?php echo nl2br($data['content']); ?>
 					<br/>
 					<a href="comments.php?post_id=<?php echo $data['id']; ?>"><em>Comments</em></a>
 				</p>
