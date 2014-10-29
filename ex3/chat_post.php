@@ -19,9 +19,6 @@ $message = $_POST['message'];
 
 if (isset($nickname) && isset($message))
 {
-	$nickname = strip_tags($nickname);
-	$message = strip_tags($message);
-	
 	if (strlen($nickname) > 0 && strlen($message) > 0)
 	{
 		$query = $db->prepare(

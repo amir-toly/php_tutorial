@@ -4,8 +4,6 @@ $pwd = $_POST['pwd'];
 
 if (isset($pwd))
 {
-	$pwd = htmlspecialchars($pwd);
-	
 	if ($pwd == 'whale')
 	{
 		echo 'Welcome to this restricted area. <br/>' .

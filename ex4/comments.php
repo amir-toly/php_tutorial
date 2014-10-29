@@ -61,10 +61,10 @@ if (isset($post_id))
 		
 		<div class="news">
 			<h3>
-				<?php echo $post['title']; ?>
+				<?php echo htmlspecialchars($post['title']); ?>
 				<em> on (french fashion display) <?php echo $post['created_at']; ?></em>
 			</h3>
-			<p><?php echo nl2br($post['content']); ?></p>
+			<p><?php echo nl2br(htmlspecialchars($post['content'])); ?></p>
 		</div>
 		
 		<h2>Comments</h2>
@@ -76,10 +76,10 @@ if (isset($post_id))
 				
 		?>
 				<p>
-					<strong><?php echo $data['author']; ?></strong>
+					<strong><?php echo htmlspecialchars($data['author']); ?></strong>
 					on (french fashion display) <?php echo $data['comment_date']; ?>
 				</p>
-				<p><?php echo nl2br($data['comment']); ?></p>
+				<p><?php echo nl2br(htmlspecialchars($data['comment'])); ?></p>
 		<?php
 			
 			}

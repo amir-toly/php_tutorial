@@ -25,7 +25,7 @@ if (!isset($pwd) && htmlspecialchars($pwd) != 'whale')
 
 <?php
 }
-elseif (isset($pwd) && htmlspecialchars($pwd) != 'whale')
+elseif (isset($pwd) && $pwd != 'whale')
 {
 	echo 'Wrong password, try again! <br/>'.
 		'<a href="secret.php">Enter password</a>';

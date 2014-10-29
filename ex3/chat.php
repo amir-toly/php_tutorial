@@ -38,8 +38,8 @@ $response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC');
 		</form>
 		<?php while ($data = $response->fetch()) { ?>
 			<p>
-				<strong><?php echo $data['nickname']; ?>:</strong>
-				<?php echo $data['message']; ?>
+				<strong><?php echo htmlspecialchars($data['nickname']); ?>:</strong>
+				<?php echo htmlspecialchars($data['message']); ?>
 			</p>
 		<?php } ?>
 	</body>

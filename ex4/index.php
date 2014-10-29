@@ -37,11 +37,11 @@ $response = $db->query("" .
 		<?php while ($data = $response->fetch()) { ?>
 			<div class="news">
 				<h3>
-					<?php echo $data['title']; ?>
+					<?php echo htmlspecialchars($data['title']); ?>
 					<em>on (french fashion display) <?php echo $data['created_at']; ?></em>
 				</h3>
 				<p>
-					<?php echo nl2br($data['content']); ?>
+					<?php echo nl2br(htmlspecialchars($data['content'])); ?>
 					<br/>
 					<a href="comments.php?post_id=<?php echo $data['id']; ?>"><em>Comments</em></a>
 				</p>
