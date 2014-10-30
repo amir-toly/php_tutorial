@@ -31,6 +31,9 @@ if (isset($nickname) && isset($message))
 		));
 		
 		$query->closeCursor();
+		
+		// Retain user's nickname
+		setcookie('nickname', $nickname, time() + 60, null, null, null, true);
 	}
 	else
 	{

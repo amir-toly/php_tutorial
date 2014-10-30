@@ -28,7 +28,7 @@ $response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC');
 		<form action="chat_post.php" method="post">
 			Nickname:
 			<br/>
-			<input type="text" name="nickname" />
+			<input type="text" name="nickname" value="<?php echo $_COOKIE['nickname']; ?>" />
 			<br/>
 			Message:
 			<br/>
