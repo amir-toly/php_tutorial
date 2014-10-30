@@ -14,7 +14,7 @@ catch (Exception $e)
 	die('ERROR: ' . $e->getMessage());
 }
 
-$response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC');
+$response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC LIMIT 0, 10');
 
 ?>
 <!DOCTYPE html>
@@ -36,6 +36,9 @@ $response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC');
 			<br/>
 			<input type="submit" value="Send" />
 		</form>
+		
+		<p><a href="chat.php">Refresh</a></p>
+		
 		<?php while ($data = $response->fetch()) { ?>
 			<p>
 				<strong><?php echo htmlspecialchars($data['nickname']); ?>:</strong>
