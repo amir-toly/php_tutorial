@@ -1,17 +1,10 @@
 <?php
 
-$page_number = $_GET['page'];
+$page_number = (int) $_GET['page'];
 
-if (!isset($page_number))
+if ($page_number < 1)
 {
 	$page_number = 1; // Display first page by default
-} else {
-	$page_number = (int) $page_number;
-	
-	if ($page_number < 1)
-	{
-		$page_number = 1;
-	}
 }
 
 $offset = ($page_number - 1) * 10;
