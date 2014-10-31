@@ -1,5 +1,21 @@
 <?php
 
+$page_number = $_GET['page'];
+
+if (!isset($page_number))
+{
+	$page_number = 1; // Display first page by default
+} else {
+	$page_number = (int) $page_number;
+	
+	if ($page_number < 1)
+	{
+		$page_number = 1;
+	}
+}
+
+$offset = ($page_number - 1) * 10;
+
 try
 {
 	$db = new PDO(
@@ -14,7 +30,8 @@ catch (Exception $e)
 	die('ERROR: ' . $e->getMessage());
 }
 
-$response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC LIMIT 0, 10');
+//TODO(find a way to use an integer in prepared statement)
+$response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC LIMIT ' . $offset . ', 10');
 
 ?>
 <!DOCTYPE html>
