@@ -68,6 +68,28 @@ if (isset($post_id))
 		</div>
 		
 		<h2>Comments</h2>
+		
+		<form method="post" action="comments_post.php">
+			<fieldset>
+				<legend>Add a comment</legend>
+				
+				<p>
+					<label for="author">Author:</label>
+					<br/>
+					<input type="text" id="author" name="author" />
+				</p>
+				<p>
+					<label for="comment">Comment:</label>
+					<br/>
+					<textarea id="comment" name="comment"></textarea>
+				</p>
+				
+				<input type="hidden" name="post_id" value="<?php echo $post_id; ?>" />
+				
+				<input type="submit" value="Send" />
+			</fieldset>
+		</form>
+		
 		<?php
 		
 		if ($query->rowCount() > 0)
