@@ -34,7 +34,7 @@ if (isset($post_id))
 	$query->closeCursor();
 	
 	$query = $db->prepare(
-		"SELECT author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y at %Hh%imin%ss') AS comment_date " .
+		"SELECT author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y at %Hh%imin%ss') AS comment_date_french_fashion " .
 		"FROM comments " .
 		"WHERE post_id = :post_id " .
 		"ORDER BY comment_date"
@@ -99,7 +99,7 @@ if (isset($post_id))
 		?>
 				<p>
 					<strong><?php echo htmlspecialchars($data['author']); ?></strong>
-					on (french fashion display) <?php echo $data['comment_date']; ?>
+					on (french fashion display) <?php echo $data['comment_date_french_fashion']; ?>
 				</p>
 				<p><?php echo nl2br(htmlspecialchars($data['comment'])); ?></p>
 		<?php

@@ -15,7 +15,7 @@ catch (Exception $e)
 }
 
 $response = $db->query("" .
-	"SELECT title, id, content, DATE_FORMAT(created_at, '%d/%m/%Y at %Hh%imin%ss') AS created_at " .
+	"SELECT title, id, content, DATE_FORMAT(created_at, '%d/%m/%Y at %Hh%imin%ss') AS created_at_french_fashion " .
 	"FROM posts " .
 	"ORDER BY created_at DESC"
 );
@@ -38,7 +38,7 @@ $response = $db->query("" .
 			<div class="news">
 				<h3>
 					<?php echo htmlspecialchars($data['title']); ?>
-					<em>on (french fashion display) <?php echo $data['created_at']; ?></em>
+					<em>on (french fashion display) <?php echo $data['created_at_french_fashion']; ?></em>
 				</h3>
 				<p>
 					<?php echo nl2br(htmlspecialchars($data['content'])); ?>
