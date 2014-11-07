@@ -21,6 +21,12 @@ if (isset($post_id))
 	
 	$query->closeCursor();
 	
+	if (empty($post))
+	{
+		include "404.php";
+		return;
+	}
+	
 	$query = $db->prepare(
 		"SELECT author, comment, DATE_FORMAT(comment_date, '%d/%m/%Y at %Hh%imin%ss') AS comment_date_french_fashion " .
 		"FROM comments " .

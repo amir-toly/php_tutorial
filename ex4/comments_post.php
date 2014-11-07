@@ -2,7 +2,7 @@
 
 $author = $_POST['author'];
 $comment = $_POST['comment'];
-$post_id = (int) $_POST['post_id'];//TODO(check that the post_id exists: here and when accessing comments.php?post_id=X)
+$post_id = (int) $_POST['post_id'];//TODO(check that the post_id exists in order to avoid orphan comments)
 
 if (!(
 	isset($author) &&
