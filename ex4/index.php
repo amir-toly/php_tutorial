@@ -1,18 +1,6 @@
 <?php
 
-try
-{
-	$db = new PDO(
-		'mysql:host=localhost;dbname=test',
-		'root',
-		'',
-		array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-	);
-}
-catch (Exception $e)
-{
-	die('ERROR: ' . $e->getMessage());
-}
+include 'db.php';
 
 $response = $db->query("" .
 	"SELECT title, id, content, DATE_FORMAT(created_at, '%d/%m/%Y at %Hh%imin%ss') AS created_at_french_fashion " .

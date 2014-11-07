@@ -15,19 +15,7 @@ if (!(
 	return;
 }
 
-try
-{
-	$db = new PDO(
-		'mysql:host=localhost;dbname=test',
-		'root',
-		'',
-		array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-	);
-}
-catch (Exception $e)
-{
-	die('ERROR: ' . $e->getMessage());
-}
+include 'db.php';
 
 $insert_comment = $db->prepare(
 	'INSERT INTO comments(post_id, author, comment, comment_date)' .
