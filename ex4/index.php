@@ -5,7 +5,8 @@ include 'db.php';
 $response = $db->query("" .
 	"SELECT title, id, content, DATE_FORMAT(created_at, '%d/%m/%Y at %Hh%imin%ss') AS created_at_french_fashion " .
 	"FROM posts " .
-	"ORDER BY created_at DESC"
+	"ORDER BY created_at DESC " .
+	"LIMIT 0, 5"
 );
 
 ?>
