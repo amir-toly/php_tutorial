@@ -23,6 +23,11 @@ h3
 	margin: auto;
 }
 
+.no-decoration
+{
+	list-style: none;
+}
+
 a
 {
 	text-decoration: none;
