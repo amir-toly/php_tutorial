@@ -26,7 +26,9 @@ $title = 'Admin - Posts list';
 					<form method="get" action="delete.php" onsubmit="confirmDeletion(this); return false;">
 						<input type="hidden" name="post_id" value="<?php echo $post['id']; ?>" />
 						<input type="submit" value="Delete" />
-						<?php echo $post['title']; ?>
+						<a href="edit.php?post_id=<?php echo $post['id']; ?>">
+							<?php echo $post['title']; ?>
+						</a>
 					</form>
 				</li>
 			<?php } ?>
