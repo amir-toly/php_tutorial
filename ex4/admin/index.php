@@ -17,7 +17,7 @@ $title = 'Admin - Posts list';
 	
 	<body>
 		<h1><?php echo $title; ?></h1>
-		<a href="#">Add a new post</a>
+		<a href="add.php">Add a new post</a>
 		
 		<ul class="no-decoration">
 			<?php while ($post = $posts->fetch()) { ?>

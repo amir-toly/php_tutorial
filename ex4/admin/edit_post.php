@@ -1,19 +1,15 @@
 <?php
 
 include '../db.php';
+include 'edit_validation.php';
 
 $title = $_POST['title'];
 $content = $_POST['content'];
 $post_id = (int) $_POST['post_id'];
 
-if (!(
-	isset($title) &&
-	isset($content) &&
-	strlen($title) > 0 &&
-	strlen($content) > 0
-))
+if ($error_msg = validate($title, $content))
 {
-	echo 'Title AND content required! <a href="edit.php?post_id=' . $post_id . '">Try again</a>';
+	echo $error_msg . ' <a href="edit.php?post_id=' . $post_id . '">Try again</a>';
 	return;
 }
 else
