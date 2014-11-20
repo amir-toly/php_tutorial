@@ -17,6 +17,8 @@ $title = 'Admin - Posts list';
 	
 	<body>
 		<h1><?php echo $title; ?></h1>
+		<a href="..">Back to Home Page</a>
+		<br/>
 		<a href="add.php">Add a new post</a>
 		
 		<ul class="no-decoration">

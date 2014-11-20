@@ -58,6 +58,10 @@ $query->execute();
 	</head>
 	
 	<body>
+		<p class="align-right">
+			<a href="admin">Admin section</a>
+		</p>
+		
 		<h1>My awesome blog!</h1>
 		<?php display_pagination(); ?>
 		
