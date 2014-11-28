@@ -28,9 +28,9 @@ h3
 	list-style: none;
 }
 
-.align-right
+.float-right
 {
-	text-align: right;
+	float: right;
 }
 
 a

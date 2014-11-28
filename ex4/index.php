@@ -18,6 +18,33 @@ function display_pagination() {
 	echo '</p>';
 }
 
+session_start();
+
+if (
+	($member_nickname = $_COOKIE['member_nickname']) &&
+	($member_pwd = $_COOKIE['member_pwd'])
+)
+{
+	$check_cookies = $db->prepare(
+		'SELECT nickname ' .
+		'FROM members ' .
+		'WHERE nickname = :nickname AND password = :password'
+	);
+	$check_cookies->execute(array(
+		'nickname' => $member_nickname,
+		'password' => $member_pwd
+	));
+	
+	$nickname = $check_cookies->fetch();
+	
+	$check_cookies->closeCursor();
+	
+	if ($nickname['nickname'])
+	{
+		$_SESSION['connected_member_nickname'] = $member_nickname;
+	};
+}
+
 define('NB_POSTS_PER_PAGE', 5);
 
 $page = (int) $_GET['page'];
@@ -58,8 +85,13 @@ $query->execute();
 	</head>
 	
 	<body>
-		<p class="align-right">
-			<a href="admin">Admin section</a>
+		<p>
+			<?php if ($connected_member_nickname = $_SESSION['connected_member_nickname']) { ?>
+				Connected as <em><?php echo $connected_member_nickname; ?></em> | <a href="logout.php">Log out</a>
+			<?php } else { ?>
+				<a href="login.php?from=<?php echo $_SERVER['PHP_SELF']; ?>">Log in</a> | <a href="signup.php">Sign up</a>
+			<?php } ?>
+			<a class="float-right" href="admin">Admin section</a>
 		</p>
 		
 		<h1>My awesome blog!</h1>
