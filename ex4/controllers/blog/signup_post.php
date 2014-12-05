@@ -48,7 +48,7 @@ if (
 		display_error('Email format is invalid.');
 	}
 	
-	if (insert_member($nickname, $pwd, $email) === 1)
+	if (insert_member($nickname, crypt($pwd), $email) === 1)
 	{
 		include '../../views/blog/signup_post_success.php';
 	}

@@ -23,7 +23,7 @@ function count_identical_nicknames($nickname)
 	return $nb_identical_nicknames['nb_identical_nicknames'];
 }
 
-function insert_member($nickname, $pwd, $email)
+function insert_member($nickname, $hashed_pwd, $email)
 {
 	global $db;
 	
@@ -33,7 +33,7 @@ function insert_member($nickname, $pwd, $email)
 	);
 	$insert_member->execute(array(
 		'nickname' => $nickname,
-		'password' => sha1($pwd),
+		'password' => $hashed_pwd,
 		'email' => $email
 	));
 	
