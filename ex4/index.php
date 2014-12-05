@@ -87,9 +87,9 @@ $query->execute();
 	<body>
 		<p>
 			<?php if ($connected_member_nickname = $_SESSION['connected_member_nickname']) { ?>
-				Connected as <em><?php echo $connected_member_nickname; ?></em> | <a href="logout.php">Log out</a>
+				Connected as <em><?php echo $connected_member_nickname; ?></em> | <a href="controllers/blog/logout.php">Log out</a>
 			<?php } else { ?>
-				<a href="login.php?from=<?php echo $_SERVER['PHP_SELF']; ?>">Log in</a> | <a href="signup.php">Sign up</a>
+				<a href="controllers/blog/login.php?from=<?php echo $_SERVER['PHP_SELF']; ?>">Log in</a> | <a href="controllers/blog/signup.php">Sign up</a>
 			<?php } ?>
 			<a class="float-right" href="admin">Admin section</a>
 		</p>
