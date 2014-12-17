@@ -1,12 +1,3 @@
-<?php
-
-include '../db.php';
-
-$posts = $db->query('SELECT * FROM posts');
-$title = 'Admin - Posts list';
-
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -17,12 +8,12 @@ $title = 'Admin - Posts list';
 	
 	<body>
 		<h1><?php echo $title; ?></h1>
-		<a href="..">Back to Home Page</a>
+		<a href="../../controllers/blog/index.php">Back to Home Page</a>
 		<br/>
 		<a href="add.php">Add a new post</a>
 		
 		<ul class="no-decoration">
-			<?php while ($post = $posts->fetch()) { ?>
+			<?php foreach ($posts as $post) { ?>
 				<li>
 					<!--TODO(how to put "return false;" in a function?)-->
 					<form method="get" action="delete.php" onsubmit="confirmDeletion(this); return false;">
@@ -45,10 +36,4 @@ $title = 'Admin - Posts list';
 	
 	</script>
 </html>
-
-<?php
-
-$posts->closeCursor();
-
-?>
 

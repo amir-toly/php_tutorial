@@ -1,6 +1,6 @@
 <?php
 
-include '../../db.php';
+include '../../models/db.php';
 
 function count_identical_nicknames($nickname)
 {
