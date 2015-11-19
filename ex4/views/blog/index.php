@@ -8,7 +8,7 @@
 	
 	<body>
 		<p>
-			<?php if ($connected_member_nickname = $_SESSION['connected_member_nickname']) { ?>
+			<?php if ($connected_member_nickname) { ?>
 				Connected as <em><?php echo $connected_member_nickname; ?></em> | <a href="../../controllers/blog/logout.php">Log out</a>
 			<?php } else { ?>
 				<a href="../../controllers/blog/login.php?from=<?php echo $_SERVER['PHP_SELF']; ?>">Log in</a> | <a href="../../controllers/blog/signup.php">Sign up</a>

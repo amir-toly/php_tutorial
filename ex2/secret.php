@@ -1,6 +1,11 @@
 <?php
 
-$pwd = $_POST['pwd'];
+$pwd = NULL;
+
+if (isset($_POST['pwd']))
+{
+	$pwd = $_POST['pwd'];
+}
 
 if (!isset($pwd) && htmlspecialchars($pwd) != 'whale')
 {

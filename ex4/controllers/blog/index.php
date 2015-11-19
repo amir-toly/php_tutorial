@@ -20,21 +20,43 @@ function display_pagination() {
 
 session_start();
 
+$member_nickname = '';
+$member_pwd = '';
+$connected_member_nickname = '';
+
+if (isset($_COOKIE['member_nickname']))
+{
+	$member_nickname = $_COOKIE['member_nickname'];
+}
+if (isset($_COOKIE['member_pwd']))
+{
+	$member_pwd = $_COOKIE['member_pwd'];
+}
+if (isset($_SESSION['connected_member_nickname']))
+{
+	$connected_member_nickname = $_SESSION['connected_member_nickname'];
+}
+
 if (
-	!$_SESSION['connected_member_nickname'] &&
-	($member_nickname = $_COOKIE['member_nickname']) &&
-	($member_pwd = $_COOKIE['member_pwd'])
+	!$connected_member_nickname &&
+	$member_nickname &&
+	$member_pwd
 )
 {
 	if (check_cookies($member_nickname, $member_pwd))
 	{
-		$_SESSION['connected_member_nickname'] = $member_nickname;
+		$connected_member_nickname = $_SESSION['connected_member_nickname'] = $member_nickname;
 	};
 }
 
 define('NB_POSTS_PER_PAGE', 5);
 
-$page = (int) $_GET['page'];
+$page = 0;
+
+if (isset($_GET['page']))
+{
+	$page = (int) $_GET['page'];
+}
 
 if ($page === 0)
 	$page++;

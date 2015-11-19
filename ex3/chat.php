@@ -1,6 +1,11 @@
 <?php
 
-$page_number = (int) $_GET['page'];
+$page_number = -1;
+
+if (isset($_GET['page']))
+{
+	$page_number = (int) $_GET['page'];
+}
 
 if ($page_number < 1)
 {
@@ -26,6 +31,13 @@ catch (Exception $e)
 //TODO(find a way to use an integer in prepared statement)
 $response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC LIMIT ' . $offset . ', 10');
 
+$nickname = '';
+
+if (isset($_COOKIE['nickname']))
+{
+	$nickname = $_COOKIE['nickname'];
+}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +50,7 @@ $response = $db->query('SELECT nickname, message FROM chat ORDER BY id DESC LIMI
 		<form action="chat_post.php" method="post">
 			Nickname:
 			<br/>
-			<input type="text" name="nickname" value="<?php echo $_COOKIE['nickname']; ?>" />
+			<input type="text" name="nickname" value="<?php echo $nickname; ?>" />
 			<br/>
 			Message:
 			<br/>
