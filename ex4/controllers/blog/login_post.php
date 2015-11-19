@@ -10,7 +10,7 @@ $pwd = $_POST['pwd'];
 
 $hashed_pwd = get_pwd($nickname);
 
-if (crypt($pwd, $hashed_pwd) === $hashed_pwd)
+if (password_verify($pwd, $hashed_pwd))
 {
 	if ($_POST['stay_connected'])
 	{

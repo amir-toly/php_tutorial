@@ -48,7 +48,8 @@ if (
 		display_error('Email format is invalid.');
 	}
 	
-	if (insert_member($nickname, crypt($pwd), $email) === 1)
+	//TODO(what if password_hash() returns FALSE?)
+	if (insert_member($nickname, password_hash($pwd, PASSWORD_DEFAULT), $email) === 1)
 	{
 		include '../../views/blog/signup_post_success.php';
 	}
