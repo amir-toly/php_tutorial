@@ -1,0 +1,5 @@
+CREATE TABLE test.chat (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nickname VARCHAR(255),
+	message VARCHAR(255)
+);
