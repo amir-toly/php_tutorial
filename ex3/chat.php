@@ -17,7 +17,7 @@ $offset = ($page_number - 1) * 10;
 try
 {
 	$db = new PDO(
-		'mysql:host=localhost;dbname=test;',
+		'mysql:host=localhost;dbname=sdz;',
 		'root',
 		'',
 		array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
